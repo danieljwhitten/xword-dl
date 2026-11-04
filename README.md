@@ -34,6 +34,7 @@ Supported outlets:
 |*Daily Princetonian Mini*|`prince-mini`|✔️|✔️||
 |*Puzzmo*|`pzm`|✔️|✔️|✔️|
 |*Puzzmo Big*|`pzmb`|✔️|✔️|✔️|
+|*Puzzmo Mini*|`pzmm`|✔️|✔️|✔️|
 |*Simply Daily Puzzles*|`sdp`|✔️|✔️|✔️|
 |*Simply Daily Puzzles Cryptic*|`sdpc`|✔️|✔️|✔️|
 |*Simply Daily Puzzles Quick*|`sdpq`|✔️|✔️|✔️|
@@ -172,10 +173,4 @@ uv sync --dev
 uv run pyright
 uv run ruff check
 uv run ruff format
-```
-
-To run your local version of `xword-dl` for testing, use:
-
-```
-uv run xword-dl <args>
 ```
