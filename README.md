@@ -40,6 +40,7 @@ Supported outlets:
 |*Seattle Times Midi*|`stmd`|✔️|✔️||
 |*Seattle Times Modern Midi*|`stmmd`|✔️|✔️||
 |*Seattle Times Large*|`stl`|✔️|✔️||
+|*Puzzmo Mini*|`pzmm`|✔️|✔️|✔️|
 |*Simply Daily Puzzles*|`sdp`|✔️|✔️|✔️|
 |*Simply Daily Puzzles Cryptic*|`sdpc`|✔️|✔️|✔️|
 |*Simply Daily Puzzles Quick*|`sdpq`|✔️|✔️|✔️|
