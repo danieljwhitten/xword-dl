@@ -35,6 +35,7 @@ Supported outlets:
 |*Puzzmo*|`pzm`|✔️|✔️|✔️|
 |*Puzzmo Big*|`pzmb`|✔️|✔️|✔️|
 |*Puzzmo Mini*|`pzmm`|✔️|✔️|✔️|
+|*SFGATE California Mini*|`sfg`|✔️|✔️|✔️|
 |*Simply Daily Puzzles*|`sdp`|✔️|✔️|✔️|
 |*Simply Daily Puzzles Cryptic*|`sdpc`|✔️|✔️|✔️|
 |*Simply Daily Puzzles Quick*|`sdpq`|✔️|✔️|✔️|

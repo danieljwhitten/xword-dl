@@ -215,6 +215,12 @@ jobs:
       - name: Test Puzzmo Mini by date
         if: '!cancelled()'
         run: xword-dl pzmm -d "2026-10-02"
+      - name: Test SFGATE latest
+        if: '!cancelled()'
+        run: xword-dl sfg
+      - name: Test SFGATE by date
+        if: '!cancelled()'
+        run: xword-dl sfg -d "2026-08-02"
       - name: Test Simply Daily Puzzles
         if: '!cancelled()'
         run: xword-dl sdp
