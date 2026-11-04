@@ -41,6 +41,7 @@ Supported outlets:
 |*Seattle Times Modern Midi*|`stmmd`|✔️|✔️||
 |*Seattle Times Large*|`stl`|✔️|✔️||
 |*Puzzmo Mini*|`pzmm`|✔️|✔️|✔️|
+|*SFGATE California Mini*|`sfg`|✔️|✔️|✔️|
 |*Simply Daily Puzzles*|`sdp`|✔️|✔️|✔️|
 |*Simply Daily Puzzles Cryptic*|`sdpc`|✔️|✔️|✔️|
 |*Simply Daily Puzzles Quick*|`sdpq`|✔️|✔️|✔️|
