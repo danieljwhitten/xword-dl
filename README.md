@@ -22,6 +22,7 @@ Supported outlets:
 |*Guardian Speedy*|`grds`|✔️||✔️|
 |*Guardian Weekend*|`grdw`|✔️||✔️|
 |*Los Angeles Times*|`lat`|✔️|✔️||
+|*Los Angeles Times Midi*|`latd`|✔️|||
 |*Los Angeles Times Mini*|`latm`|✔️|✔️||
 |*New York Times*|`nyt`|✔️|✔️|✔️|
 |*New York Times Mini*|`nytm`|✔️|✔️|✔️|
