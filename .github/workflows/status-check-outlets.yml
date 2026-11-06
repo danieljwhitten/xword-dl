@@ -80,6 +80,9 @@ jobs:
       - name: Test LA Times by date
         if: '!cancelled()'
         run: xword-dl lat -d "2022/12/14"
+      - name: Test LA Times Midi latest
+        if: '!cancelled()'
+        run: xword-dl latd
       - name: Test LA Times Mini latest
         if: '!cancelled()'
         run: xword-dl latm
