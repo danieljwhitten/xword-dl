@@ -267,6 +267,12 @@ jobs:
       - name: Test Simply Daily Puzzles Quick
         if: '!cancelled()'
         run: xword-dl sdpq
+      - name: Test STAT latest
+        if: '!cancelled()'
+        run: xword-dl stat
+      - name: Test STAT by date
+        if: '!cancelled()'
+        run: xword-dl stat -d "october 6, 2026"
       - name: Test Universal latest
         if: '!cancelled()'
         run: xword-dl uni
