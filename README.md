@@ -22,6 +22,7 @@ Supported outlets:
 |*Los Angeles Times*|`lat`|✔️|✔️||
 |*Los Angeles Times Midi*|`latd`|✔️|||
 |*Los Angeles Times Mini*|`latm`|✔️|✔️||
+|*Merriam Webster Missing Letter*|`mw`|✔️|✔️||
 |*New York Times*|`nyt`|✔️|✔️|✔️|
 |*New York Times Mini*|`nytm`|✔️|✔️|✔️|
 |*New York Times Midi*|`nytd`|✔️|✔️|✔️|

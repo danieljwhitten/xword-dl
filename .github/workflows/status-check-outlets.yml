@@ -89,6 +89,12 @@ jobs:
       - name: Test LA Times Mini by date
         if: '!cancelled()'
         run: xword-dl latm -d "july 20, 2025"
+      - name: Test Merriam Webster latest
+        if: '!cancelled()'
+        run: xword-dl mw
+      - name: Test Merriam Webster by date
+        if: '!cancelled()'
+        run: xword-dl mw -d "july 20, 2025"
 #      - name: Test New York Times latest
 #        if: '!cancelled()'
 #        env:
