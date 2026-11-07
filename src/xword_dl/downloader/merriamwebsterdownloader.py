@@ -19,3 +19,12 @@ class MerriamWebsterDownloader(AmuseLabsDownloader):
         self.id = "mw_" + url_formatted_date
 
         return self.find_puzzle_url_from_id(self.id)
+
+    # MW has title = day of the week, author = date (%a %d), and doesn't list
+    # the actual author. To avoid confusion, title and 'author' are combined
+    # as title, author is left blank
+    def parse_xword(self, xw_data):
+        puzzle = super().parse_xword(xw_data)
+        puzzle.title = f"{puzzle.title}, {puzzle.author}"
+        puzzle.author = ""
+        return puzzle
