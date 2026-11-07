@@ -32,6 +32,12 @@ jobs:
 #      - name: Test Billboard latest
 #        if: '!cancelled()'
 #        run: xword-dl bill
+      - name: Test Chicago Mini latest
+        if: '!cancelled()'
+        run: xword-dl cstm
+      - name: Test Chicago Mini by date
+        if: '!cancelled()'
+        run: xword-dl cstm -d 10/3/26
       - name: Test Crossword Club latest
         if: '!cancelled()'
         run: xword-dl club
@@ -98,12 +104,15 @@ jobs:
       - name: Test LA Times Mini by date
         if: '!cancelled()'
         run: xword-dl latm -d "july 20, 2025"
+<<<<<<< HEAD
       - name: Test Merriam Webster latest
         if: '!cancelled()'
         run: xword-dl mw
       - name: Test Merriam Webster by date
         if: '!cancelled()'
         run: xword-dl mw -d "july 20, 2025"
+=======
+>>>>>>> feature-cstm
 #      - name: Test New York Times latest
 #        if: '!cancelled()'
 #        env:
