@@ -65,6 +65,12 @@ jobs:
       - name: Test Der Standard by URL
         if: '!cancelled()'
         run: xword-dl "https://www.derstandard.at/story/3000000201583/kreuzwortraetsel-h-10580"
+      - name: Test Globe Mini latest
+        if: '!cancelled()'
+        run: xword-dl gm
+      - name: Test Globe Mini by date
+        if: '!cancelled()'
+        run: xword-dl gm -d 10/3/26
       - name: Test Guardian Cryptic
         if: '!cancelled()'
         run: xword-dl grdc

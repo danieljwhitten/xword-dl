@@ -78,7 +78,7 @@ class GlobeAndMailDownloader(CrosswordCompilerDownloader): # type: ignore
 
 
 class GlobeAndMailMiniDownloader(AmuseLabsDownloader):
-    command = "gamm"
+    command = "gm"
     outlet = "The Globe and Mail Globe Mini"
     outlet_prefix = "Globe Mini"
 
