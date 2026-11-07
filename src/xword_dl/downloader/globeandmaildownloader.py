@@ -77,7 +77,7 @@ class GlobeAndMailDownloader(CrosswordCompilerDownloader): # type: ignore
         return puzzle_url
 
 
-class GlobeAndMailMiniDownloader(AmuseLabsDownloader):
+class GlobeMiniDownloader(AmuseLabsDownloader):
     command = "gm"
     outlet = "The Globe and Mail Globe Mini"
     outlet_prefix = "Globe Mini"
@@ -95,3 +95,17 @@ class GlobeAndMailMiniDownloader(AmuseLabsDownloader):
         self.id = "globeandmail-mini_" + url_formatted_date
 
         return self.find_puzzle_url_from_id(self.id)
+
+class GlobeAndMailGiantDownloader(AmuseLabsDownloader):
+    command = "gamg"
+    outlet = "The Globe and Mail Giant Crossword"
+    outlet_prefix = "Globe and Mail Giant"
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+        self.picker_url = "https://cdn-us.amuselabs.com/pmm/date-picker?set=globeandmail-crossword-giant"
+        self.url_from_id = (
+            "https://cdn-us.amuselabs.com/pmm/crossword?id={puzzle_id}&set=globeandmail-crossword-giant"
+        )
+        #ID is random string, so no search by date possible. Not a big deal, as only two are published per year
