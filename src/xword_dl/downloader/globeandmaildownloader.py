@@ -1,6 +1,7 @@
 import datetime
 import urllib.parse
 from functools import partial
+from collections.abc import Callable
 
 from .amuselabsdownloader import AmuseLabsDownloader
 from .compilerdownloader import CrosswordCompilerDownloader
@@ -8,7 +9,7 @@ from ..util import XWordDLException
 
 
 # Skip type checking while this downloader is inactive, but hopefully will fix someday!
-class GlobeAndMailDownloader(CrosswordCompilerDownloader): # type: ignore
+class GlobeAndMailDownloader(CrosswordCompilerDownloader):  # type: ignore
     # command = 'tgam'       # Removing because as of Jan 2025, TGAM has stopped publishing its own puzzle
     # and instead syndicates The Times on a 6 week delay.
     # Leaving this file because it's small and might be a useful reference for
@@ -19,6 +20,8 @@ class GlobeAndMailDownloader(CrosswordCompilerDownloader): # type: ignore
     # downloaders in one file
     outlet = "The Globe And Mail (Cryptic)"
     outlet_prefix = "Globe And Mail"
+
+    _fetch_data: Callable[..., bytes]  # added to satisfy pyright
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -85,16 +88,17 @@ class GlobeMiniDownloader(AmuseLabsDownloader):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-        self.picker_url = "https://cdn-us.amuselabs.com/pmm/date-picker?set=globeandmail-mini"
-        self.url_from_id = (
-            "https://cdn-us.amuselabs.com/pmm/crossword?id={puzzle_id}&set=globeandmail-mini"
+        self.picker_url = (
+            "https://cdn-us.amuselabs.com/pmm/date-picker?set=globeandmail-mini"
         )
+        self.url_from_id = "https://cdn-us.amuselabs.com/pmm/crossword?id={puzzle_id}&set=globeandmail-mini"
 
     def find_by_date(self, dt):
         url_formatted_date = dt.strftime("%Y%m%d")
         self.id = "globeandmail-mini_" + url_formatted_date
 
         return self.find_puzzle_url_from_id(self.id)
+
 
 class GlobeAndMailGiantDownloader(AmuseLabsDownloader):
     command = "gamg"
@@ -105,7 +109,5 @@ class GlobeAndMailGiantDownloader(AmuseLabsDownloader):
         super().__init__(**kwargs)
 
         self.picker_url = "https://cdn-us.amuselabs.com/pmm/date-picker?set=globeandmail-crossword-giant"
-        self.url_from_id = (
-            "https://cdn-us.amuselabs.com/pmm/crossword?id={puzzle_id}&set=globeandmail-crossword-giant"
-        )
-        #ID is random string, so no search by date possible. Not a big deal, as only two are published per year
+        self.url_from_id = "https://cdn-us.amuselabs.com/pmm/crossword?id={puzzle_id}&set=globeandmail-crossword-giant"
+        # ID is random string, so no search by date possible. Not a big deal, as only two are published per year
