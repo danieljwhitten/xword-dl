@@ -32,6 +32,12 @@ jobs:
 #      - name: Test Billboard latest
 #        if: '!cancelled()'
 #        run: xword-dl bill
+      - name: Test Chicago Mini latest
+        if: '!cancelled()'
+        run: xword-dl cstm
+      - name: Test Chicago Mini by date
+        if: '!cancelled()'
+        run: xword-dl club -d 10/3/26
       - name: Test Crossword Club latest
         if: '!cancelled()'
         run: xword-dl club
