@@ -59,6 +59,9 @@ jobs:
       - name: Test Globe Mini by date
         if: '!cancelled()'
         run: xword-dl gm -d 10/3/26
+      - name: Test Globe and Mail Giant latest
+        if: '!cancelled()'
+        run: xword-dl gamg
       - name: Test Guardian Cryptic
         if: '!cancelled()'
         run: xword-dl grdc

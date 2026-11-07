@@ -13,6 +13,7 @@ Supported outlets:
 |*Daily Pop*|`pop`|✔️|✔️||
 |*Der Standard*|`std`|✔️||✔️|
 |*Globe and Mail Globe Mini*|`gm`|✔️|✔️||
+|*Globe and Mail Giant Crossword*|`gamg`|✔️|||
 |*Guardian Cryptic*|`grdc`|✔️||✔️|
 |*Guardian Everyman*|`grde`|✔️||✔️|
 |*Guardian Prize*|`grdp`|✔️||✔️|
