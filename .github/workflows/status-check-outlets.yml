@@ -37,11 +37,9 @@ jobs:
         run: xword-dl cstm
       - name: Test Chicago Mini by date
         if: '!cancelled()'
-<<<<<<< HEAD
         run: xword-dl cstm -d 10/3/26
-=======
         run: xword-dl club -d 10/3/26
->>>>>>> 1d1a6b0 (Added support for Chicago Mini)
+        run: xword-dl cstm -d 10/3/26
       - name: Test Crossword Club latest
         if: '!cancelled()'
         run: xword-dl club
