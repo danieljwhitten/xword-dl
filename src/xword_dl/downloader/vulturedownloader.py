@@ -1,4 +1,5 @@
 import requests
+import re
 from datetime import datetime, date
 from urllib.parse import urlparse
 
@@ -55,7 +56,7 @@ class VultureDownloader(AmuseLabsDownloader):
         return url
 
     def find_by_date(self, dt):
-        if dt.date() == date.today(): # Latest puzzle doesn't have date in URL
+        if dt.date() == date.today():  # Latest puzzle doesn't have date in URL
             url_format = ""
         else:
             url_format = f"-{dt:%B-{dt.day}-%Y}".lower()
@@ -75,11 +76,22 @@ class VultureDownloader(AmuseLabsDownloader):
             parsed_url = urlparse(url)
             slug = parsed_url.path.split("/")[-1].removesuffix(".html")
             date_section = "-".join(slug.split("-")[-3:])
-            if date_section == "daily-crossword-puzzle": # Latest, no date in URL 
-                headers = {"User-Agent": "Googlebot"} # python-requests blocked
+            if date_section == "daily-crossword-puzzle":  # Latest, no date in URL
+                headers = {"User-Agent": "Googlebot"}  # python-requests blocked
                 response = requests.get(url, headers=headers)
-                header_date = response.headers.get('Date') # Publishing date
-                self.date = datetime.strptime(header_date, '%a, %d %b %Y %H:%M:%S %Z')
+                soup = BeautifulSoup(response.text, "html.parser")
+                html_date = None
+                for script in soup.find_all("script"):
+                    text = script.get_text() or ""
+                    match = re.search(r'.publishDate\s*=\s*"(\d{4}-\d{2}-\d{2})"', text)
+                    if match:
+                        html_date = match.group(1)
+                        break
+                if not html_date:
+                    raise XWordDLException(
+                        "Could not determine puzzle date: no Date in html"
+                    )
+                self.date = datetime.strptime(html_date, "%Y-%m-%d")
             else:
                 self.date = datetime.strptime(date_section, "%B-%d-%Y")
         except Exception:
