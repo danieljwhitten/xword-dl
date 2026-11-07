@@ -38,6 +38,7 @@ Supported outlets:
 |*Observer Speedy*|`spdy`|✔️||✔️|
 |*Daily Princetonian*|`prince`|✔️|✔️||
 |*Daily Princetonian Mini*|`prince-mini`|✔️|✔️||
+|*India Mini*|`im`|✔️|✔️||
 |*Puzzmo*|`pzm`|✔️|✔️|✔️|
 |*Puzzmo Big*|`pzmb`|✔️|✔️|✔️|
 |*Seattle Times Mini*|`stmn`|✔️|✔️||

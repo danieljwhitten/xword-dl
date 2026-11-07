@@ -207,6 +207,12 @@ jobs:
       - name: Test Newsday by date
         if: '!cancelled()'
         run: xword-dl nd -d "dec. 12, 2023"
+      - name: Test India Mini latest
+        if: '!cancelled()'
+        run: xword-dl im
+      - name: Test India Mini by date
+        if: '!cancelled()'
+        run: xword-dl i, -d "oct. 12, 2026"
       - name: Test Princetonian latest
         if: '!cancelled()'
         run: xword-dl prince
