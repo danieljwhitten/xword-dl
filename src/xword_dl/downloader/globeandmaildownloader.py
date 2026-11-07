@@ -1,20 +1,22 @@
-# type: ignore
-
-# Skip type checking while this downloader is inactive, but hopefully will fix someday!
-
 import datetime
 import urllib.parse
 from functools import partial
 
+from .amuselabsdownloader import AmuseLabsDownloader
 from .compilerdownloader import CrosswordCompilerDownloader
 from ..util import XWordDLException
 
 
-class GlobeAndMailDownloader(CrosswordCompilerDownloader):
+# Skip type checking while this downloader is inactive, but hopefully will fix someday!
+class GlobeAndMailDownloader(CrosswordCompilerDownloader): # type: ignore
     # command = 'tgam'       # Removing because as of Jan 2025, TGAM has stopped publishing its own puzzle
     # and instead syndicates The Times on a 6 week delay.
     # Leaving this file because it's small and might be a useful reference for
     # other Compiler children.
+    # NOTE 7 Nov 2026 (@danieljwhitten):
+    # TGAM still syndicates the Times, but publishes its own daily mini and special occasion giant (69x69)
+    # This downloader should stay retired, but mini and giant downloaders included below to keep all TGAM
+    # downloaders in one file
     outlet = "The Globe And Mail (Cryptic)"
     outlet_prefix = "Globe And Mail"
 
@@ -73,3 +75,23 @@ class GlobeAndMailDownloader(CrosswordCompilerDownloader):
         puzzle_url = f"https://xwords.net/xwordjs/files/html5/{puzzle_id}crp.js"
 
         return puzzle_url
+
+
+class GlobeAndMailMiniDownloader(AmuseLabsDownloader):
+    command = "gamm"
+    outlet = "The Globe and Mail Globe Mini"
+    outlet_prefix = "Globe Mini"
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+        self.picker_url = "https://cdn-us.amuselabs.com/pmm/date-picker?set=globeandmail-mini"
+        self.url_from_id = (
+            "https://cdn-us.amuselabs.com/pmm/crossword?id={puzzle_id}&set=globeandmail-mini"
+        )
+
+    def find_by_date(self, dt):
+        url_formatted_date = dt.strftime("%Y%m%d")
+        self.id = "globeandmail-mini_" + url_formatted_date
+
+        return self.find_puzzle_url_from_id(self.id)
