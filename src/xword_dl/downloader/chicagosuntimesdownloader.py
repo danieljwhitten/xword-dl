@@ -3,7 +3,7 @@ from .amuselabsdownloader import AmuseLabsDownloader
 
 class ChicagoSunTimesMiniDownloader(AmuseLabsDownloader):
     command = "cstm"
-    outlet = "Chicago Sun Times Chicago Mini"
+    outlet = "Chicago Sun-Times Chicago Mini"
     outlet_prefix = "Chicago Mini"
 
     def __init__(self, **kwargs):
