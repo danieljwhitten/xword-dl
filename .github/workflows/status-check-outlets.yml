@@ -306,3 +306,9 @@ jobs:
       - name: Test Wall Street Journal by date
         if: '!cancelled()'
         run: xword-dl wsj -d "2026-07-10"
+      - name: Test Your Puzzle Source latest
+        if: '!cancelled()'
+        run: xword-dl yps
+      - name: Test Your Puzzle Source Weekend latest 
+        if: '!cancelled()'
+        run: xword-dl ypsw
