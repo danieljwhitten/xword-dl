@@ -20,7 +20,7 @@ class IndiaMiniDownloader(AmuseLabsDownloader):
         self.id = "al-crossword-mini-" + url_formatted_date
 
         return self.find_puzzle_url_from_id(self.id)
-    
+
     def parse_xword(self, xw_data):
         puzzle = super().parse_xword(xw_data)
 
@@ -31,6 +31,6 @@ class IndiaMiniDownloader(AmuseLabsDownloader):
                 xw_data["publishTime"] / 1000, tz=ZoneInfo(xw_data["publishTimeZone"])
             ).date()
         except (TypeError, ValueError):
-            self.date = self.date 
+            self.date = self.date
 
         return puzzle
