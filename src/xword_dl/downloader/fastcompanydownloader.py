@@ -35,16 +35,16 @@ class FastCompanyMiniDownloader(AmuseLabsDownloader):
         return puzzle
 
 
-#class YourPuzzleSourceWeekendDownloader(YourPuzzleSourceDownloader):
-#    command = "ypsw"
-#    outlet = "Your Puzzle Source Weekend"
-#    outlet_prefix = "Your Puzzle Source Weekend"
-#
-#    def __init__(self, **kwargs):
-#        super().__init__(**kwargs)
-#
-#        self.picker_url += "-15x15"
-#
-#        self.url_from_id = (
-#            "https://app.amuselabs.com/app/crossword?id={puzzle_id}&set=yps-15x15"
-#        )
+class FastCompanySundayDownloader(FastCompanyMiniDownloader):
+    command = "fcs"
+    outlet = "Fast Company Sunday"
+    outlet_prefix = "Fast Company Sunday"
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+        self.picker_url = "https://cdn2.amuselabs.com/puzzleme/date-picker?set=mansueto-sunday-crossword"
+
+        self.url_from_id = (
+            "https://cdn2.amuselabs.com/puzzleme/crossword?id={puzzle_id}&set=mansueto-sunday-crossword"
+        )
