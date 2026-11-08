@@ -68,6 +68,12 @@ jobs:
       - name: Test Globe and Mail Giant latest
         if: '!cancelled()'
         run: xword-dl gamg
+      - name: Test Fast Company Mini latest
+        if: '!cancelled()'
+        run: xword-dl fcm
+      - name: Test Fast Company Sunday latest
+        if: '!cancelled()'
+        run: xword-dl fcs
       - name: Test Guardian Cryptic
         if: '!cancelled()'
         run: xword-dl grdc
