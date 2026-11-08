@@ -16,6 +16,8 @@ Supported outlets:
 |*Der Standard*|`std`|✔️||✔️|
 |*Globe and Mail Globe Mini*|`gm`|✔️|✔️||
 |*Globe and Mail Giant Crossword*|`gamg`|✔️|||
+|*Fast Company Mini*|`fcm`|✔️|||
+|*Fast Company Sunday*|`fcs`|✔️|||
 |*Guardian Cryptic*|`grdc`|✔️||✔️|
 |*Guardian Everyman*|`grde`|✔️||✔️|
 |*Guardian Prize*|`grdp`|✔️||✔️|
