@@ -9,7 +9,7 @@ Supported outlets:
 |*Atlantic*|`atl`|✔️|✔️||
 |*Crossword Club*|`club`|✔️|✔️|✔️|
 |*Billboard*|`bill`|✔️|||
-|*Chicago Sun Times Chicago Mini*|`cstm`|✔️|✔️||
+|*Chicago Sun-Times Chicago Mini*|`cstm`|✔️|✔️||
 |*The Daily Beast*|`db`|✔️|||
 |*Daily Pop*|`pop`|✔️|✔️||
 |*Der Standard*|`std`|✔️||✔️|
