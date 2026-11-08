@@ -43,6 +43,7 @@ Supported outlets:
 |*Vulture 10x10*|`vult`|✔️|✔️|✔️|
 |*The Walrus*|`wal`|✔️|||
 |*Washington Post*|`wp`|✔️|✔️||
+|*Your Puzzle Source*|`wp`|✔️|||
 
 To download a puzzle, install `xword-dl` and run it on the command line.
 
