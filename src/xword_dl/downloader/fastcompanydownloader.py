@@ -13,10 +13,10 @@ class FastCompanyMiniDownloader(AmuseLabsDownloader):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-        self.picker_url = "https://cdn2.amuselabs.com/puzzleme/date-picker?set=mansueto-minicrossword"
-        self.url_from_id = (
-            "https://cdn2.amuselabs.com/puzzleme/crossword?id={puzzle_id}&set=mansueto-minicrossword"
+        self.picker_url = (
+            "https://cdn2.amuselabs.com/puzzleme/date-picker?set=mansueto-minicrossword"
         )
+        self.url_from_id = "https://cdn2.amuselabs.com/puzzleme/crossword?id={puzzle_id}&set=mansueto-minicrossword"
 
     def parse_xword(self, xw_data):
         puzzle = super().parse_xword(xw_data)
@@ -45,6 +45,4 @@ class FastCompanySundayDownloader(FastCompanyMiniDownloader):
 
         self.picker_url = "https://cdn2.amuselabs.com/puzzleme/date-picker?set=mansueto-sunday-crossword"
 
-        self.url_from_id = (
-            "https://cdn2.amuselabs.com/puzzleme/crossword?id={puzzle_id}&set=mansueto-sunday-crossword"
-        )
+        self.url_from_id = "https://cdn2.amuselabs.com/puzzleme/crossword?id={puzzle_id}&set=mansueto-sunday-crossword"

@@ -12,6 +12,8 @@ Supported outlets:
 |*The Daily Beast*|`db`|✔️|||
 |*Daily Pop*|`pop`|✔️|✔️||
 |*Der Standard*|`std`|✔️||✔️|
+|*Fast Company Mini*|`fcm`|✔️|||
+|*Fast Company Sunday*|`fcs`|✔️|||
 |*Guardian Cryptic*|`grdc`|✔️||✔️|
 |*Guardian Everyman*|`grde`|✔️||✔️|
 |*Guardian Prize*|`grdp`|✔️||✔️|
