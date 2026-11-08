@@ -59,7 +59,7 @@ Supported outlets:
 |*Wall Street Journal*|`wsj`|✔️|✔️||
 |*Washington Post*|`wp`|✔️|✔️||
 |*Your Puzzle Source*|`yps`|✔️|||
-|*Your Puzzle Source*|`ypsw`|✔️|||
+|*Your Puzzle Source Weekend*|`ypsw`|✔️|||
 
 To download a puzzle, install `xword-dl` and run it on the command line.
 
