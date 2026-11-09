@@ -219,6 +219,12 @@ jobs:
       - name: Test India Mini by date
         if: '!cancelled()'
         run: xword-dl i, -d "oct. 12, 2026"
+      - name: Test People latest
+        if: '!cancelled()'
+        run: xword-dl pp
+      - name: Test People by date
+        if: '!cancelled()'
+        run: xword-dl pp -d "2026-11-02"
       - name: Test Princetonian latest
         if: '!cancelled()'
         run: xword-dl prince
