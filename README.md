@@ -30,6 +30,7 @@ Supported outlets:
 |*Newsday*|`nd`|✔️|✔️||
 |*Observer Everyman*|`ever`|✔️||✔️|
 |*Observer Speedy*|`spdy`|✔️||✔️|
+|*People Puzzler*|`pp`|✔️|✔️||
 |*Daily Princetonian*|`prince`|✔️|✔️||
 |*Daily Princetonian Mini*|`prince-mini`|✔️|✔️||
 |*Puzzmo*|`pzm`|✔️|✔️|✔️|
