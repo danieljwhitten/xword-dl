@@ -1,7 +1,7 @@
 from .amuselabsdownloader import AmuseLabsDownloader
 
 
-class AtlanticDownloader(AmuseLabsDownloader):
+class PeopleDownloader(AmuseLabsDownloader):
     command = "pp"
     outlet = "People Puzzler"
     outlet_prefix = "People"
