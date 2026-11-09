@@ -1,4 +1,5 @@
 import datetime
+from urllib.parse import urlsplit, parse_qsl, urlencode
 
 import dateparser.search
 
@@ -17,6 +18,21 @@ class DailyBeastDownloader(AmuseLabsDownloader):
         self.url_from_id = (
             "https://cdn3.amuselabs.com/tdb/crossword?id={puzzle_id}&set=tdb"
         )
+
+    # Replace id= query compenent with date= query component and add token
+    def find_by_date(self, dt):
+        self.get_and_add_picker_token()
+        latest_url_split = urlsplit(self.url_from_id)
+        query = parse_qsl(latest_url_split.query)
+        query = dict(query)
+        del query["id"]
+        query["date"] = f"{dt:%Y-%m-%d}"
+        print(query)
+        date_url = latest_url_split._replace(
+            query=urlencode(list(query.items()))
+        ).geturl()
+        print(date_url)
+        return date_url
 
     def parse_xword(self, xw_data):
         puzzle = super().parse_xword(xw_data)
