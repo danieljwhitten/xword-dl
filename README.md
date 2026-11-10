@@ -24,15 +24,13 @@ Supported outlets:
 |*Guardian Quiptic*|`grdu`|✔️||✔️|
 |*Guardian Speedy*|`grds`|✔️||✔️|
 |*Guardian Weekend*|`grdw`|✔️||✔️|
-<<<<<<< HEAD
 |*Indian Express Mini*|`iem`|✔️|✔️||
-=======
 |*ICI Médias*|`ici`|✔️|✔️||
->>>>>>> feature-ici
 |*Los Angeles Times*|`lat`|✔️|✔️||
 |*Los Angeles Times Midi*|`latd`|✔️|||
 |*Los Angeles Times Mini*|`latm`|✔️|✔️||
 |*Merriam Webster Missing Letter*|`mw`|✔️|✔️||
+|*New York Magazine*|`nym`|✔️|||
 |*New York Times*|`nyt`|✔️|✔️|✔️|
 |*New York Times Mini*|`nytm`|✔️|✔️|✔️|
 |*New York Times Midi*|`nytd`|✔️|✔️|✔️|
