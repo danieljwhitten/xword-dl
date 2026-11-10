@@ -26,6 +26,7 @@ Supported outlets:
 |*Guardian Speedy*|`grds`|✔️||✔️|
 |*Guardian Weekend*|`grdw`|✔️||✔️|
 |*Indian Express Mini*|`iem`|✔️|✔️||
+|*ICI Médias*|`ici`|✔️|✔️||
 |*Los Angeles Times*|`lat`|✔️|✔️||
 |*Los Angeles Times Midi*|`latd`|✔️|||
 |*Los Angeles Times Mini*|`latm`|✔️|✔️||
