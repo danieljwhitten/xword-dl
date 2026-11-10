@@ -74,6 +74,12 @@ jobs:
       - name: Test Guardian Weekend
         if: '!cancelled()'
         run: xword-dl grdw
+      - name: Test ICI Médias latest
+        if: '!cancelled()'
+        run: xword-dl ici
+      - name: Test ICI Médias by date
+        if: '!cancelled()'
+        run: xword-dl ici -d "2026/11/04"
       - name: Test LA Times latest
         if: '!cancelled()'
         run: xword-dl lat
