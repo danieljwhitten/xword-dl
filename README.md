@@ -21,6 +21,7 @@ Supported outlets:
 |*Guardian Weekend*|`grdw`|✔️||✔️|
 |*Los Angeles Times*|`lat`|✔️|✔️||
 |*Los Angeles Times Mini*|`latm`|✔️|✔️||
+|*New York Magazine*|`nym`|✔️|||
 |*New York Times*|`nyt`|✔️|✔️|✔️|
 |*New York Times Mini*|`nytm`|✔️|✔️|✔️|
 |*New York Times Midi*|`nytd`|✔️|✔️|✔️|
