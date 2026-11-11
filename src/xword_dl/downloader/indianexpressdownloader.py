@@ -4,25 +4,25 @@ from zoneinfo import ZoneInfo
 from .amuselabsdownloader import AmuseLabsDownloader
 
 
-class IndiainExpressMiniDownloader(AmuseLabsDownloader):
+class IndianExpressMiniDownloader(AmuseLabsDownloader):
     command = "iem"
     outlet = "Indian Express Mini"
     outlet_prefix = "Indian Express Mini"
+    url_set = "indianexpress-crossword-mini"
+    url_base = "https://cdn-in.amuselabs.com/pmm/"
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-        self.picker_url = "https://cdn-in.amuselabs.com/pmm/date-picker?set=indianexpress-crossword-mini"
-        self.url_from_id = "https://cdn-in.amuselabs.com/pmm/crossword?id={puzzle_id}&set=indianexpress-crossword-mini"
+        self.picker_url = f"{self.url_base}date-picker?set={self.url_set}"
+        self.url_from_id = (
+            f"{self.url_base}crossword?id={{puzzle_id}}&set={self.url_set}"
+        )
 
     def find_by_date(
         self, dt
     ):  # IE mini uses `date=%Y-%m-%d` instead of `id=prefix_%Y%m%d`
-        url_formatted_date = dt.strftime("%Y-%m-%d")
-        src_formatted_date = dt.strftime("%Y%m%d")
-        url = f"https://cdn-in.amuselabs.com/pmm/crossword?set=indianexpress-crossword-mini&date={url_formatted_date}&src=https%3A%2F%2Findianexpress.com%2Fpuzzles-and-games%2Fmini-crossword%2Fie-mini-{src_formatted_date}%2F&uid="
-
-        return url
+        return f"{self.url_base}crossword?set={self.url_set}&date={dt:%Y-%m-%d}"
 
     def parse_xword(self, xw_data):
         puzzle = super().parse_xword(xw_data)
@@ -36,3 +36,15 @@ class IndiainExpressMiniDownloader(AmuseLabsDownloader):
             pass
 
         return puzzle
+
+
+class ShefferDownloader(
+    IndianExpressMiniDownloader
+):  # Indian Express hosts the daily Sheffer via AmuseLabs
+    command = "shef"
+    outlet = "Eugene Sheffer Crossword"
+    outlet_prefix = "Sheffer Crossword"
+    url_set = "indianexpress-sheffer"
+
+    def find_by_date(self, dt):
+        return f"{self.url_base}crossword?set={self.url_set}&id=ie-sheffer-{dt:%Y%m%d}"
