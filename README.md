@@ -57,6 +57,7 @@ Supported outlets:
 |*Simply Daily Puzzles Cryptic*|`sdpc`|✔️|✔️|✔️|
 |*Simply Daily Puzzles Quick*|`sdpq`|✔️|✔️|✔️|
 |*STAT News Mini*|`stat`|✔️|✔️||
+|*Eugene Sheffer Crossword*|`shef`|✔️|✔️||
 |*Universal*|`uni`|✔️|✔️||
 |*USA Today*|`usa`|✔️|✔️||
 |*Vox*|`vox`|✔️|||
