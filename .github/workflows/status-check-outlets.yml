@@ -177,6 +177,12 @@ jobs:
       - name: Test Newsday by date
         if: '!cancelled()'
         run: xword-dl nd -d "dec. 12, 2023"
+      - name: Test Penny Dell latest
+        if: '!cancelled()'
+        run: xword-dl pd
+      - name: Test Penny Dell by date
+        if: '!cancelled()'
+        run: xword-dl pd -d "2026-03-30"
       - name: Test Princetonian latest
         if: '!cancelled()'
         run: xword-dl prince
