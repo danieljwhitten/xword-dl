@@ -38,3 +38,11 @@ class SeattleTimesModernMidiDownloader(SeattleTimesDownloader):
     outlet = "Seattle Times Modern Midi"
     outlet_prefix = "Seattle Times Modern Midi"
     url_set = "seattletimes-contemporary-midi-crossword"
+
+
+# ST syndicates Penny Dell for its 'Large' crossword via Amuselabs
+class PennyDellDownloader(SeattleTimesDownloader):
+    command = "pd"
+    outlet = "Penny Dell"
+    outlet_prefix = "Penny Dell"
+    url_set = "seattletimes-crossword-large"
