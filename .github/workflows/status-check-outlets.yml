@@ -101,6 +101,18 @@ jobs:
       - name: Test Guardian Weekend
         if: '!cancelled()'
         run: xword-dl grdw
+      - name: Test Hindustan Times Mini latest
+        if: '!cancelled()'
+        run: xword-dl htm
+      - name: Test Hindustan Times Mini by date
+        if: '!cancelled()'
+        run: xword-dl htm -d "2026/10/14"
+      - name: Test Hindustan Times Sunday latest
+        if: '!cancelled()'
+        run: xword-dl hts
+      - name: Test Hindustan Times Sunday by date
+        if: '!cancelled()'
+        run: xword-dl hts -d "2026/10/25"
       - name: Test LA Times latest
         if: '!cancelled()'
         run: xword-dl lat
