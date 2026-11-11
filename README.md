@@ -26,6 +26,8 @@ Supported outlets:
 |*Guardian Weekend*|`grdw`|✔️||✔️|
 |*Indian Express Mini*|`iem`|✔️|✔️||
 |*ICI Médias*|`ici`|✔️|✔️||
+|*Hindustan Times Mini*|`htm`|✔️|✔️||
+|*Hindustan Times Sunday Movie*|`hts`|✔️|✔️||
 |*Los Angeles Times*|`lat`|✔️|✔️||
 |*Los Angeles Times Midi*|`latd`|✔️|||
 |*Los Angeles Times Mini*|`latm`|✔️|✔️||
