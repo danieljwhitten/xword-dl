@@ -20,10 +20,21 @@ class SeattleTimesDownloader(AmuseLabsDownloader):
 
 
 class SeattleTimesMiniDownloader(SeattleTimesDownloader):
-    command = "stm"
+    command = "stmn"
     outlet = "Seattle Times Mini"
     outlet_prefix = "Seattle Times Mini"
-    url_set = "crossword-mini"
+    url_set = "seattletimes-crossword-mini"
 
-    def find_by_date(self, dt):
-        return f"{self.url_base}crossword?set={self.url_set}&date={dt:%Y-%m-%d}"
+
+class SeattleTimesMidiDownloader(SeattleTimesDownloader):
+    command = "stmd"
+    outlet = "Seattle Times Midi"
+    outlet_prefix = "Seattle Times Midi"
+    url_set = "seattletimes-crossword-midi"
+
+
+class SeattleTimesModernMidiDownloader(SeattleTimesDownloader):
+    command = "stmmd"
+    outlet = "Seattle Times Modern Midi"
+    outlet_prefix = "Seattle Times Modern Midi"
+    url_set = "seattletimes-contemporary-midi-crossword"
