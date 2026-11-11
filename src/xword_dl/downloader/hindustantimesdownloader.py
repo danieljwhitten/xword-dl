@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
 from .amuselabsdownloader import AmuseLabsDownloader
@@ -40,3 +40,15 @@ class HindustanTimesMiniDownloader(HindustanTimesDownloader):
     outlet = "Hindustan Times Mini"
     outlet_prefix = "Hindustan Times Mini"
     url_set = "hindustantimes-crossword-mini"
+
+
+class HindustanTimesSundayDownloader(HindustanTimesDownloader):
+    command = "hts"
+    outlet = "Hindustan Times Sunday Movie"
+    outlet_prefix = "Hindustan Times Sunday Movie"
+    url_set = "hindustantimes-sunday-movie-crossword"
+
+    # Sunday crossword is accessed by saturday date
+    def find_by_date(self, dt):
+        dt = dt - timedelta(days=1)
+        return f"{self.url_base}crossword?date={dt:%Y-%m-%d}&set={self.url_set}"
