@@ -20,6 +20,7 @@ Supported outlets:
 |*Guardian Speedy*|`grds`|✔️||✔️|
 |*Guardian Weekend*|`grdw`|✔️||✔️|
 |*Hindustan Times Mini*|`htm`|✔️|✔️||
+|*Hindustan Times Cryptic*|`htc`|✔️|✔️||
 |*Hindustan Times Sunday Movie*|`hts`|✔️|✔️||
 |*Los Angeles Times*|`lat`|✔️|✔️||
 |*Los Angeles Times Mini*|`latm`|✔️|✔️||

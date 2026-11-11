@@ -21,6 +21,7 @@ class HindustanTimesDownloader(AmuseLabsDownloader):
     ):  # HT allows `date=%Y-%m-%d` instead of `id=prefix_%Y%m%d`
         return f"{self.url_base}crossword?set={self.url_set}&date={dt:%Y-%m-%d}"
 
+
 class HindustanTimesMiniDownloader(HindustanTimesDownloader):
     command = "htm"
     outlet = "Hindustan Times Mini"
@@ -51,6 +52,7 @@ class HindustanTimesSundayDownloader(HindustanTimesDownloader):
             pass
 
         return puzzle
+
 
 class HindustanTimesCrypticDownloader(HindustanTimesDownloader):
     command = "htc"
