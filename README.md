@@ -19,6 +19,8 @@ Supported outlets:
 |*Guardian Quiptic*|`grdu`|✔️||✔️|
 |*Guardian Speedy*|`grds`|✔️||✔️|
 |*Guardian Weekend*|`grdw`|✔️||✔️|
+|*Hindustan Times Mini*|`htm`|✔️|✔️||
+|*Hindustan Times Sunday Movie*|`hts`|✔️|✔️||
 |*Los Angeles Times*|`lat`|✔️|✔️||
 |*Los Angeles Times Mini*|`latm`|✔️|✔️||
 |*New York Times*|`nyt`|✔️|✔️|✔️|
