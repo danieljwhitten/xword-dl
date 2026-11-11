@@ -101,6 +101,12 @@ jobs:
       - name: Test Hindustan Times Mini by date
         if: '!cancelled()'
         run: xword-dl htm -d "2026/10/14"
+      - name: Test Hindustan Times Cryptic latest
+        if: '!cancelled()'
+        run: xword-dl htc
+      - name: Test Hindustan Times Cryptic by date
+        if: '!cancelled()'
+        run: xword-dl htc -d "2026/10/14"
       - name: Test Hindustan Times Sunday latest
         if: '!cancelled()'
         run: xword-dl hts
