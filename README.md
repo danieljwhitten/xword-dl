@@ -48,6 +48,12 @@ Supported outlets:
 |*Puzzmo Big*|`pzmb`|✔️|✔️|✔️|
 |*Puzzmo Mini*|`pzmm`|✔️|✔️|✔️|
 |*SFGATE California Mini*|`sfg`|✔️|✔️|✔️|
+|*Penny Dell Crosswords*|`pd`|✔️|✔️||
+|*Puzzmo*|`pzm`|✔️|✔️|✔️|
+|*Puzzmo Big*|`pzmb`|✔️|✔️|✔️|
+|*Seattle Times Mini*|`stmn`|✔️|✔️||
+|*Seattle Times Midi*|`stmd`|✔️|✔️||
+|*Seattle Times Modern Midi*|`stmmd`|✔️|✔️||
 |*Simply Daily Puzzles*|`sdp`|✔️|✔️|✔️|
 |*Simply Daily Puzzles Cryptic*|`sdpc`|✔️|✔️|✔️|
 |*Simply Daily Puzzles Quick*|`sdpq`|✔️|✔️|✔️|

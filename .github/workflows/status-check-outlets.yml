@@ -228,6 +228,12 @@ jobs:
       - name: Test People by date
         if: '!cancelled()'
         run: xword-dl pp -d "2026-11-02"
+      - name: Test Penny Dell latest
+        if: '!cancelled()'
+        run: xword-dl pd
+      - name: Test Penny Dell by date
+        if: '!cancelled()'
+        run: xword-dl pd -d "2026-03-30"
       - name: Test Princetonian latest
         if: '!cancelled()'
         run: xword-dl prince
@@ -273,6 +279,24 @@ jobs:
       - name: Test SFGATE by date
         if: '!cancelled()'
         run: xword-dl sfg -d "2026-08-02"
+      - name: Test Seattle Times Mini latest
+        if: '!cancelled()'
+        run: xword-dl stmn
+      - name: Test Seattle Times Mini by date
+        if: '!cancelled()'
+        run: xword-dl stmn -d "2026-10-30"
+      - name: Test Seattle Times Midi latest
+        if: '!cancelled()'
+        run: xword-dl stmd
+      - name: Test Seattle Times Midi by date
+        if: '!cancelled()'
+        run: xword-dl stmd -d "2026-10-30"
+      - name: Test Seattle Times Modern Midi latest
+        if: '!cancelled()'
+        run: xword-dl stmmd
+      - name: Test Seattle Times Modern Midi by date
+        if: '!cancelled()'
+        run: xword-dl stmmd -d "2026-10-30"
       - name: Test Simply Daily Puzzles
         if: '!cancelled()'
         run: xword-dl sdp
