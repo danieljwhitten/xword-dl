@@ -41,8 +41,8 @@ class SeattleTimesModernMidiDownloader(SeattleTimesDownloader):
 
 
 # ST syndicates Penny Dell for its 'Large' crossword via Amuselabs
-class PennyDellDownloader(SeattleTimesDownloader):
-    command = "pd"
-    outlet = "Penny Dell"
-    outlet_prefix = "Penny Dell"
+class SeattleTimesLargeDownloader(SeattleTimesDownloader):
+    command = "stl"
+    outlet = "Seattle Times Large"
+    outlet_prefix = "Seattle Times Large"
     url_set = "seattletimes-crossword-large"

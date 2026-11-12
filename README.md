@@ -32,12 +32,12 @@ Supported outlets:
 |*Observer Speedy*|`spdy`|✔️||✔️|
 |*Daily Princetonian*|`prince`|✔️|✔️||
 |*Daily Princetonian Mini*|`prince-mini`|✔️|✔️||
-|*Penny Dell Crosswords*|`pd`|✔️|✔️||
 |*Puzzmo*|`pzm`|✔️|✔️|✔️|
 |*Puzzmo Big*|`pzmb`|✔️|✔️|✔️|
 |*Seattle Times Mini*|`stmn`|✔️|✔️||
 |*Seattle Times Midi*|`stmd`|✔️|✔️||
 |*Seattle Times Modern Midi*|`stmmd`|✔️|✔️||
+|*Seattle Times Large*|`stl`|✔️|✔️||
 |*Simply Daily Puzzles*|`sdp`|✔️|✔️|✔️|
 |*Simply Daily Puzzles Cryptic*|`sdpc`|✔️|✔️|✔️|
 |*Simply Daily Puzzles Quick*|`sdpq`|✔️|✔️|✔️|
