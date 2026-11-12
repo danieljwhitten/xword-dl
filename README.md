@@ -19,6 +19,9 @@ Supported outlets:
 |*Guardian Quiptic*|`grdu`|✔️||✔️|
 |*Guardian Speedy*|`grds`|✔️||✔️|
 |*Guardian Weekend*|`grdw`|✔️||✔️|
+|*Irish Times Daily 8*|`it8`|✔️|✔️||
+|*Irish Times Simplex*|`its`|✔️|✔️||
+|*Irish Times Crosaire*|`itc`|✔️|✔️||
 |*Los Angeles Times*|`lat`|✔️|✔️||
 |*Los Angeles Times Mini*|`latm`|✔️|✔️||
 |*New York Times*|`nyt`|✔️|✔️|✔️|
