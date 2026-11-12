@@ -30,6 +30,9 @@ Supported outlets:
 |*Hindustan Times Mini*|`htm`|✔️|✔️||
 |*Hindustan Times Cryptic*|`htc`|✔️|✔️||
 |*Hindustan Times Sunday Movie*|`hts`|✔️|✔️||
+|*Irish Times Daily 8*|`it8`|✔️|✔️||
+|*Irish Times Simplex*|`its`|✔️|✔️||
+|*Irish Times Crosaire*|`itc`|✔️|✔️||
 |*Los Angeles Times*|`lat`|✔️|✔️||
 |*Los Angeles Times Midi*|`latd`|✔️|||
 |*Los Angeles Times Mini*|`latm`|✔️|✔️||

@@ -149,6 +149,24 @@ jobs:
       - name: Test New York Magazine latest
         if: '!cancelled()'
         run: xword-dl nym
+      - name: Test Irish Times Mini latest
+        if: '!cancelled()'
+        run: xword-dl it8
+      - name: Test Irish Times Mini by date
+        if: '!cancelled()'
+        run: xword-dl it8 -d "july 20, 2026"
+      - name: Test Irish Times Simplex latest
+        if: '!cancelled()'
+        run: xword-dl its
+      - name: Test Irish Times Simplex by date
+        if: '!cancelled()'
+        run: xword-dl its -d "july 20, 2026"
+      - name: Test Irish Times Crosaire latest
+        if: '!cancelled()'
+        run: xword-dl itc
+      - name: Test Irish Times Crosaire by date
+        if: '!cancelled()'
+        run: xword-dl itc -d "july 20, 2026"
 #      - name: Test New York Times latest
 #        if: '!cancelled()'
 #        env:
