@@ -1,6 +1,5 @@
 from .amuselabsdownloader import AmuseLabsDownloader
 
-
 class ChicagoSunTimesDownloader(AmuseLabsDownloader):
     url_base = "https://chicagopm.amuselabs.com/puzzleme/"
     url_set = None

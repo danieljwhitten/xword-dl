@@ -9,7 +9,11 @@ Supported outlets:
 |*Atlantic*|`atl`|✔️|✔️||
 |*Crossword Club*|`club`|✔️|✔️|✔️|
 |*Billboard*|`bill`|✔️|||
+<<<<<<< HEAD
 |*Chicago Sun-Times Chicago Mini*|`cstm`|✔️|✔️||
+=======
+|*Chicago Sun Times Chicago Mini*|`cstm`|✔️|✔️||
+>>>>>>> 1d1a6b0 (Added support for Chicago Mini)
 |*The Daily Beast*|`db`|✔️|||
 |*Daily Pop*|`pop`|✔️|✔️||
 |*Der Standard*|`std`|✔️||✔️|
