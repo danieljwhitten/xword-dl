@@ -4,6 +4,8 @@ import urllib.parse
 
 from bs4 import BeautifulSoup
 from requests.exceptions import HTTPError
+from datetime import datetime
+from zoneinfo import ZoneInfo
 
 from .amuselabsdownloader import AmuseLabsDownloader
 from ..util import XWordDLException
@@ -104,3 +106,15 @@ class DerStandardDownloader(AmuseLabsDownloader):
             title = title.replace(umlaut, rep)
 
         return super().pick_filename(puzzle, title=title, **kwargs)
+
+    def parse_xword(self, xw_data):
+        puzzle = super().parse_xword(xw_data)
+        # Time zone can throw off date processing, try to extract timestamp and time
+        # zone from data, otherwise leave as-is
+        try:
+            self.date = datetime.fromtimestamp(
+                xw_data["publishTime"] / 1000, tz=ZoneInfo(xw_data["publishTimeZone"])
+            ).date()
+        except (TypeError, ValueError):
+            pass
+        return puzzle
