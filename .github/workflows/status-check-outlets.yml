@@ -245,7 +245,7 @@ jobs:
         run: xword-dl im
       - name: Test India Mini by date
         if: '!cancelled()'
-        run: xword-dl i, -d "oct. 12, 2026"
+        run: xword-dl im, -d "oct. 12, 2026"
       - name: Test People latest
         if: '!cancelled()'
         run: xword-dl pp
@@ -288,6 +288,15 @@ jobs:
       - name: Test Puzzmo Big by date
         if: '!cancelled()'
         run: xword-dl pzmb -d "2025-04-21"
+      - name: Test Puzzmo Mini by date
+        if: '!cancelled()'
+        run: xword-dl pzmm -d "2026-10-02"
+      - name: Test SFGATE latest
+        if: '!cancelled()'
+        run: xword-dl sfg
+      - name: Test SFGATE by date
+        if: '!cancelled()'
+        run: xword-dl sfg -d "2026-08-02"
       - name: Test Seattle Times Mini latest
         if: '!cancelled()'
         run: xword-dl stmn

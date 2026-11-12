@@ -50,6 +50,10 @@ Supported outlets:
 |*India Mini*|`im`|✔️|✔️||
 |*Puzzmo*|`pzm`|✔️|✔️|✔️|
 |*Puzzmo Big*|`pzmb`|✔️|✔️|✔️|
+|*Puzzmo Mini*|`pzmm`|✔️|✔️|✔️|
+|*SFGATE California Mini*|`sfg`|✔️|✔️|✔️|
+|*Puzzmo*|`pzm`|✔️|✔️|✔️|
+|*Puzzmo Big*|`pzmb`|✔️|✔️|✔️|
 |*Seattle Times Mini*|`stmn`|✔️|✔️||
 |*Seattle Times Midi*|`stmd`|✔️|✔️||
 |*Seattle Times Modern Midi*|`stmmd`|✔️|✔️||
