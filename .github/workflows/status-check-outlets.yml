@@ -38,8 +38,12 @@ jobs:
       - name: Test Chicago Mini by date
         if: '!cancelled()'
         run: xword-dl cstm -d 10/3/26
-        run: xword-dl club -d 10/3/26
-        run: xword-dl cstm -d 10/3/26
+      - name: Test Chicago Sun-Times latest
+        if: '!cancelled()'
+        run: xword-dl cst
+      - name: Test Chicago Sun-Times by date
+        if: '!cancelled()'
+        run: xword-dl cst -d 10/3/26
       - name: Test Crossword Club latest
         if: '!cancelled()'
         run: xword-dl club

@@ -1,5 +1,6 @@
 from .amuselabsdownloader import AmuseLabsDownloader
 
+
 class ChicagoSunTimesDownloader(AmuseLabsDownloader):
     url_base = "https://chicagopm.amuselabs.com/puzzleme/"
     url_set = None
@@ -26,3 +27,11 @@ class ChicagoSunTimesMiniDownloader(ChicagoSunTimesDownloader):
     outlet_prefix = "Chicago Mini"
     url_set = "chicagopm-chicago-mini"
     id_prefix = "chicagopm_"
+
+
+class ChicagoSunTimesFullDownloader(ChicagoSunTimesDownloader):
+    command = "cst"
+    outlet = "Chicago Sun-Times Full"
+    outlet_prefix = "Chicago Sun-Times"
+    url_set = "chicagopm-crossword-large"
+    id_prefix = "chicagopm-crossword_"
