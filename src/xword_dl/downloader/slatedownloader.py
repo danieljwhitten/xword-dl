@@ -148,3 +148,14 @@ class SlateDownloader(CrosshareDownloader):
             raise XWordDLException(
                     f"No embed URL found on puzzle page {url}. Please report this as a bug."
                 )
+
+class SlateMiniDownloader(SlateDownloader):
+    command = "slatem"
+    outlet = "Slate Mini"
+    outlet_prefix = "Slate Mini" 
+    play_url_prefix = "crossword-slate-mini-daily-puzzle"
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.landing_url = "https://slate.com/tag/mini-crossword"
+
