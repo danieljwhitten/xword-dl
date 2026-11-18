@@ -357,7 +357,7 @@ jobs:
       - name: Test Simply Daily Puzzles Cryptic
         if: '!cancelled()'
         run: xword-dl sdpc
-      - name: Test Simply Daily Puzzles Quick
+     - name: Test Simply Daily Puzzles Quick
         if: '!cancelled()'
         run: xword-dl sdpq
       - name: Test STAT latest
@@ -372,13 +372,13 @@ jobs:
       - name: Test Sheffer by date
         if: '!cancelled()'
         run: xword-dl shef -d "November 10, 2026"
-      - name: Test Slate Latest
+      - name: Test Slate Midi Latest
         if: '!cancelled()'
         run: xword-dl sla
-      - name: Test Slate by URL
+      - name: Test Slate Midi by URL
         if: '!cancelled()'
         run: xword-dl "https://slate.com/life/2026/11/crossword-slate-daily-puzzle-nov-9-2026.html"
-      - name: Test Slate by date
+      - name: Test Slate Midi by date
         if: '!cancelled()'
         run: xword-dl sla -d "nov 15, 2026"
       - name: Test Slate Mini Latest

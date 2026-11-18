@@ -68,7 +68,7 @@ Supported outlets:
 |*Simply Daily Puzzles Quick*|`sdpq`|✔️|✔️|✔️|
 |*STAT News Mini*|`stat`|✔️|✔️||
 |*Eugene Sheffer Crossword*|`shef`|✔️|✔️||
-|*Slate*|`sla`|✔️|✔️|✔️|
+|*Slate Midi*|`sla`|✔️|✔️|✔️|
 |*Slate Mini*|`slam`|✔️|✔️|✔️|
 |*Universal*|`uni`|✔️|✔️||
 |*USA Today*|`usa`|✔️|✔️||
