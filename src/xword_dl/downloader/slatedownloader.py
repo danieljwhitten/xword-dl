@@ -16,51 +16,23 @@ from .basedownloader import BaseDownloader
 from ..util import XWordDLException, unidecode
 
 
-class SlateDownloader(BaseDownloader):
-    command = "slate"
-    outlet = "Slate"
-    outlet_prefix = "Slate" 
+class CrosshareDownloader(BaseDownloader):
+    outlet = "CROSSHARE"
+    outlet_prefix = "CROSSHARE" 
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-        self.id = None
-
         # these values must be overridden by subclasses, if used
-        self.landing_url = "https://slate.com/life/crossword"
-        self.play_url_prefix = "crossword-slate-daily-puzzle"
+        self.landing_url = "https://slate.com/tag/crossword"
 
-    def find_latest(self) -> str:
-        
-        link_regex = rf"^https://slate.com/life/\d{{4}}/\d{{2}}/.*?{self.play_url_prefix}-[a-z]{{3}}-\d{{2}}-\d{{4}}\.html"
-
-        res = self.session.get(self.landing_url)
-        soup = BeautifulSoup(res.text, 'html.parser')
-        link_tag = soup.find('a', href=re.compile(link_regex))
-        
-        if link_tag:
-            link = link_tag['href']
-            match = re.search(r"([a-z]{3}-\d{1,2}-\d{4})\.html$", link, re.IGNORECASE)
-            if match:
-                self.date  = datetime.datetime.strptime(match.group(1), "%b-%d-%Y")
-                print(self.date)
-            return link
-        else:
-            raise XWordDLException(
-                    "Could not find any appropriate links on {self.landing_url}. Please report this as a bug."
-                )
-
+    @classmethod
+    def matches_url(cls, url_components):
+        print(("crosshare.org" in url_components.netloc) and any(p in url_components.path for p in ["embed", "crosswords"]))
+        return ("crosshare.org" in url_components.netloc) and any(p in url_components.path for p in ["embed", "crosswords"])
 
     def find_solver(self, url):
-        res = self.session.get(url)
-        soup = BeautifulSoup(res.text, 'html.parser')
-        embed_link = soup.find('div', attrs={"data-embed-url": True})['data-embed-url']
-        if embed_link:
-            return embed_link 
-        else:
-            raise XWordDLException(
-                    f"No embed URL found on puzzle page {url}. Please report this as a bug."
-                )
+        return url
 
     def fetch_data(self, solver_url):
         res = self.session.get(solver_url)
@@ -135,3 +107,50 @@ class SlateDownloader(BaseDownloader):
             self.guess_date_from_id(self.id)
         return super().pick_filename(puzzle, **kwargs)
 
+
+class SlateDownloader(CrosshareDownloader):
+    command = "slate"
+    outlet = "Slate"
+    outlet_prefix = "Slate" 
+    play_url_prefix = "crossword-slate-daily-puzzle"
+        
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.landing_url = "https://slate.com/tag/crossword"
+    
+    @classmethod
+    def matches_url(cls, url_components):
+        return ("slate.com" in url_components.netloc) and (cls.play_url_prefix in url_components.path)
+
+    def find_latest(self) -> str:
+        
+        link_regex = rf"^https://slate.com/life/\d{{4}}/\d{{2}}/.*?{self.play_url_prefix}-[a-z]{{3}}-\d{{2}}-\d{{4}}\.html"
+
+        res = self.session.get(self.landing_url)
+        soup = BeautifulSoup(res.text, 'html.parser')
+        link_tag = soup.find('a', href=re.compile(link_regex))
+        
+        if link_tag:
+            link = link_tag['href']
+            match = re.search(r"([a-z]{3}-\d{1,2}-\d{4})\.html$", link, re.IGNORECASE)
+            if match:
+                self.date  = datetime.datetime.strptime(match.group(1), "%b-%d-%Y")
+            return link
+        else:
+            raise XWordDLException(
+                    "Could not find any appropriate links on {self.landing_url}. Please report this as a bug."
+                )
+
+    def find_by_date(self, dt):
+        return f"https://slate.com/life/{dt:%Y}/{dt:%m}/{self.play_url_prefix}-{dt.strftime('%b').lower()}-{dt:%d}-{dt:%Y}.html"
+
+    def find_solver(self, url):
+        res = self.session.get(url)
+        soup = BeautifulSoup(res.text, 'html.parser')
+        embed_link = soup.find('div', attrs={"data-embed-url": True})['data-embed-url']
+        if embed_link:
+            return embed_link 
+        else:
+            raise XWordDLException(
+                    f"No embed URL found on puzzle page {url}. Please report this as a bug."
+                )
