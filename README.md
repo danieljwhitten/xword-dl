@@ -37,7 +37,7 @@ Supported outlets:
 |*Simply Daily Puzzles*|`sdp`|✔️|✔️|✔️|
 |*Simply Daily Puzzles Cryptic*|`sdpc`|✔️|✔️|✔️|
 |*Simply Daily Puzzles Quick*|`sdpq`|✔️|✔️|✔️|
-|*Slate*|`sla`|✔️|✔️|✔️|
+|*Slate Midi*|`sla`|✔️|✔️|✔️|
 |*Slate Mini*|`slam`|✔️|✔️|✔️|
 |*Universal*|`uni`|✔️|✔️||
 |*USA Today*|`usa`|✔️|✔️||

@@ -5,9 +5,10 @@ from bs4 import BeautifulSoup, Tag
 from .crossharedownloader import CrosshareDownloader
 from ..util import XWordDLException
 
+
 class SlateDownloader(CrosshareDownloader):
     command = "sla"
-    outlet = "Slate"
+    outlet = "Slate Midi"
     outlet_prefix = "Slate"
     play_url_prefix = "crossword-slate-daily-puzzle"
 
@@ -55,7 +56,7 @@ class SlateDownloader(CrosshareDownloader):
                 f"No embed URL found on puzzle page {url}. Please report this as a bug."
             )
         return str(embed_tag.get("data-embed-url", ""))
-   
+
     def parse_xword(self, xw_data):
         puzzle = super().parse_xword(xw_data)
         # Slate has a generic author and lists author under guestConstructor
@@ -65,6 +66,7 @@ class SlateDownloader(CrosshareDownloader):
             else xw_data.get("guestConstructor").strip()
         )
         return puzzle
+
 
 class SlateMiniDownloader(SlateDownloader):
     command = "slam"
