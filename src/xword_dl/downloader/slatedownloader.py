@@ -103,7 +103,7 @@ class CrosshareDownloader(BaseDownloader):
         return puzzle
 
 class SlateDownloader(CrosshareDownloader):
-    command = "slate"
+    command = "sla"
     outlet = "Slate"
     outlet_prefix = "Slate" 
     play_url_prefix = "crossword-slate-daily-puzzle"
@@ -150,7 +150,7 @@ class SlateDownloader(CrosshareDownloader):
                 )
 
 class SlateMiniDownloader(SlateDownloader):
-    command = "slatem"
+    command = "slam"
     outlet = "Slate Mini"
     outlet_prefix = "Slate Mini" 
     play_url_prefix = "crossword-slate-mini-daily-puzzle"
