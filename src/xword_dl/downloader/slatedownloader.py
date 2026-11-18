@@ -102,12 +102,6 @@ class CrosshareDownloader(BaseDownloader):
         
         return puzzle
 
-    def pick_filename(self, puzzle, **kwargs):
-        if not self.date and self.id:
-            self.guess_date_from_id(self.id)
-        return super().pick_filename(puzzle, **kwargs)
-
-
 class SlateDownloader(CrosshareDownloader):
     command = "slate"
     outlet = "Slate"
