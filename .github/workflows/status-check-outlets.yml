@@ -53,6 +53,9 @@ jobs:
       - name: Test Crossword Club by URL
         if: '!cancelled()'
         run: xword-dl "https://crosswordclub.com/puzzles/sunday-january-07-2024/"
+      - name: Test Crosshare by URL
+        if: '!cancelled()'
+        run: xword-dl "https://crosshare.org/crosswords/v6ObGR1DVx7nKq2vnxlT/hand-me-downs"
       - name: Test Daily Beast latest
         if: '!cancelled()'
         run: xword-dl db
@@ -369,6 +372,24 @@ jobs:
       - name: Test Sheffer by date
         if: '!cancelled()'
         run: xword-dl shef -d "November 10, 2026"
+      - name: Test Slate Latest
+        if: '!cancelled()'
+        run: xword-dl sla
+      - name: Test Slate by URL
+        if: '!cancelled()'
+        run: xword-dl "https://slate.com/life/2026/11/crossword-slate-daily-puzzle-nov-9-2026.html"
+      - name: Test Slate by date
+        if: '!cancelled()'
+        run: xword-dl sla -d "nov 15, 2026"
+      - name: Test Slate Mini Latest
+        if: '!cancelled()'
+        run: xword-dl slam
+      - name: Test Slate Mini by URL
+        if: '!cancelled()'
+        run: xword-dl "https://slate.com/life/2026/11/crossword-slate-mini-daily-puzzle-nov-9-2026.html"
+      - name: Test Slate by date
+        if: '!cancelled()'
+        run: xword-dl slam -d "nov 15, 2026"
       - name: Test Universal latest
         if: '!cancelled()'
         run: xword-dl uni

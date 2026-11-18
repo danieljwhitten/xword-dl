@@ -68,6 +68,8 @@ Supported outlets:
 |*Simply Daily Puzzles Quick*|`sdpq`|✔️|✔️|✔️|
 |*STAT News Mini*|`stat`|✔️|✔️||
 |*Eugene Sheffer Crossword*|`shef`|✔️|✔️||
+|*Slate*|`sla`|✔️|✔️|✔️|
+|*Slate Mini*|`slam`|✔️|✔️|✔️|
 |*Universal*|`uni`|✔️|✔️||
 |*USA Today*|`usa`|✔️|✔️||
 |*Vox*|`vox`|✔️|||
@@ -118,7 +120,7 @@ or simply
 xword-dl nd
 ```
 
-You can also download puzzles that are embedded in AmuseLabs solvers or on supported sites by providing a URL, such as:
+You can also download puzzles that are embedded in AmuseLabs or Crosshare solvers or on supported sites by providing a URL, such as:
 
 ```
 xword-dl https://rosswordpuzzles.com/2021/01/03/cover-up/
