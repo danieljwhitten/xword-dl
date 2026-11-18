@@ -21,6 +21,11 @@ class SlateDownloader(CrosshareDownloader):
             cls.play_url_prefix in url_components.path
         )
 
+    def date_from_url(self, url):
+        match = re.search(r"([a-z]{3}-\d{1,2}-\d{4})\.html$", url, re.IGNORECASE)
+        if match:
+            self.date = datetime.datetime.strptime(match.group(1), "%b-%d-%Y").date()
+
     def find_latest(self) -> str:
         link_regex = rf"^https://slate.com/life/\d{{4}}/\d{{2}}/.*?{self.play_url_prefix}-[a-z]{{3}}-\d{{2}}-\d{{4}}\.html"
 
@@ -33,15 +38,14 @@ class SlateDownloader(CrosshareDownloader):
                 f"Could not find any appropriate links on {self.landing_url}. Please report this as a bug."
             )
         link = str(link_tag.get("href", ""))
-        match = re.search(r"([a-z]{3}-\d{1,2}-\d{4})\.html$", link, re.IGNORECASE)
-        if match:
-            self.date = datetime.datetime.strptime(match.group(1), "%b-%d-%Y").date()
+        self.date_from_url(link)
         return link
 
     def find_by_date(self, dt):
         return f"https://slate.com/life/{dt:%Y}/{dt:%m}/{self.play_url_prefix}-{dt.strftime('%b').lower()}-{dt.day}-{dt:%Y}.html"
 
     def find_solver(self, url) -> str:
+        self.date_from_url(url)
         res = self.session.get(url)
         soup = BeautifulSoup(res.text, "html.parser")
         embed_tag = soup.find("div", attrs={"data-embed-url": True})
