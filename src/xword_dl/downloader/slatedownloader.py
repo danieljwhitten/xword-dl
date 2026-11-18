@@ -2,7 +2,6 @@ import datetime
 import json
 
 import puz
-import requests
 
 import re
 
@@ -16,7 +15,7 @@ from ..util import XWordDLException, unidecode
 
 class CrosshareDownloader(BaseDownloader):
     outlet = "CROSSHARE"
-    outlet_prefix = "CROSSHARE" 
+    outlet_prefix = "CROSSHARE"
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -26,7 +25,9 @@ class CrosshareDownloader(BaseDownloader):
 
     @classmethod
     def matches_url(cls, url_components):
-        return ("crosshare.org" in url_components.netloc) and any(p in url_components.path for p in ["embed", "crosswords"])
+        return ("crosshare.org" in url_components.netloc) and any(
+            p in url_components.path for p in ["embed", "crosswords"]
+        )
 
     def find_solver(self, url):
         return url
@@ -40,43 +41,59 @@ class CrosshareDownloader(BaseDownloader):
 
         script_tag = soup.find("script", id="__NEXT_DATA__")
         if not isinstance(script_tag, Tag):
-             raise XWordDLException(
+            raise XWordDLException(
                 f"Crossword puzzle not found. Could not find script tag in {solver_url}. Please report this as a bug."
             )
 
         try:
-            return json.loads(script_tag.get_text())['props']['pageProps']['puzzle']
+            return json.loads(script_tag.get_text())["props"]["pageProps"]["puzzle"]
         except (json.JSONDecodeError, KeyError):
-            raise XWordDLException(f"Unable to find JSON puzzle object in {solver_url}. Please report this as a bug.")
+            raise XWordDLException(
+                f"Unable to find JSON puzzle object in {solver_url}. Please report this as a bug."
+            )
 
     def parse_xword(self, xw_data):
         puzzle = puz.Puzzle()
         puzzle.title = xw_data.get("title", "").strip()
         # Slate has a generic author and lists author under guestConstructor
-        puzzle.author = xw_data.get("authorName", '').strip() if xw_data.get("guestConstructor", '') == '' else xw_data.get("guestConstructor").strip()
+        puzzle.author = (
+            xw_data.get("authorName", "").strip()
+            if xw_data.get("guestConstructor", "") == ""
+            else xw_data.get("guestConstructor").strip()
+        )
         puzzle.width, puzzle.height = xw_data.get("size", {}).values()
 
         timestamp = int(xw_data.get("publishTime", 0)) // 1000
         if timestamp and not self.date:
             self.date = datetime.date.fromtimestamp(timestamp)
 
-        grid = xw_data.get('grid', [])
+        grid = xw_data.get("grid", [])
         puzzle.solution = "".join([cell[0] for cell in grid])
-        puzzle.fill = re.sub(r"[^.]","-",puzzle.solution)
+        puzzle.fill = re.sub(r"[^.]", "-", puzzle.solution)
 
         no_rebus = all(len(cell) == 1 for cell in grid)
 
         if not no_rebus:
             rebus_board_index = count(1)
-            rebus_board = [0 if len(cell) <= 1 else next(rebus_board_index) for cell in xw_data.get('grid', [])]
+            rebus_board = [
+                0 if len(cell) <= 1 else next(rebus_board_index)
+                for cell in xw_data.get("grid", [])
+            ]
             rebus_table_index = count(1)
-            rebus_table = "".join([f'{next(rebus_table_index):2d}:{unidecode(cell)};' if len(cell) > 1 else '' for cell in grid]) 
+            rebus_table = "".join(
+                [
+                    f"{next(rebus_table_index):2d}:{unidecode(cell)};"
+                    if len(cell) > 1
+                    else ""
+                    for cell in grid
+                ]
+            )
             puzzle.extensions[b"GRBS"] = bytes(rebus_board)
             puzzle.extensions[b"RTBL"] = rebus_table.encode(puz.ENCODING)
             puzzle._extensions_order.extend([b"GRBS", b"RTBL"])
             puzzle.rebus()
 
-        circled = xw_data.get('cellStyles', {}).get('circle', [])
+        circled = xw_data.get("cellStyles", {}).get("circle", [])
 
         if circled:
             markup = bytearray(puzzle.width * puzzle.height)
@@ -85,45 +102,54 @@ class CrosshareDownloader(BaseDownloader):
             puzzle.extensions[b"GEXT"] = bytes(markup)
             puzzle._extensions_order.append(b"GEXT")
             puzzle.markup()
-            
-        if xw_data.get('isContest'): 
+
+        if xw_data.get("isContest"):
             puzzle.solution_state = 0x0002
             puzzle.title += " - no solution provided"
 
-        puzzle.clues.extend([c["clue"] for c in sorted(xw_data.get("clues", []), key = lambda c: (c['num'], c['dir']))])
-        
+        puzzle.clues.extend(
+            [
+                c["clue"]
+                for c in sorted(
+                    xw_data.get("clues", []), key=lambda c: (c["num"], c["dir"])
+                )
+            ]
+        )
+
         return puzzle
+
 
 class SlateDownloader(CrosshareDownloader):
     command = "sla"
     outlet = "Slate"
-    outlet_prefix = "Slate" 
+    outlet_prefix = "Slate"
     play_url_prefix = "crossword-slate-daily-puzzle"
-        
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.landing_url = "https://slate.com/tag/crossword"
-    
+
     @classmethod
     def matches_url(cls, url_components):
-        return ("slate.com" in url_components.netloc) and (cls.play_url_prefix in url_components.path)
+        return ("slate.com" in url_components.netloc) and (
+            cls.play_url_prefix in url_components.path
+        )
 
     def find_latest(self) -> str:
-        
         link_regex = rf"^https://slate.com/life/\d{{4}}/\d{{2}}/.*?{self.play_url_prefix}-[a-z]{{3}}-\d{{2}}-\d{{4}}\.html"
 
         res = self.session.get(self.landing_url)
-        soup = BeautifulSoup(res.text, 'html.parser')
-        link_tag = soup.find('a', href=re.compile(link_regex))
-        
+        soup = BeautifulSoup(res.text, "html.parser")
+        link_tag = soup.find("a", href=re.compile(link_regex))
+
         if not isinstance(link_tag, Tag):
             raise XWordDLException(
-                    f"Could not find any appropriate links on {self.landing_url}. Please report this as a bug."
-                )
-        link = str(link_tag.get('href', ""))
+                f"Could not find any appropriate links on {self.landing_url}. Please report this as a bug."
+            )
+        link = str(link_tag.get("href", ""))
         match = re.search(r"([a-z]{3}-\d{1,2}-\d{4})\.html$", link, re.IGNORECASE)
         if match:
-            self.date  = datetime.datetime.strptime(match.group(1), "%b-%d-%Y").date()
+            self.date = datetime.datetime.strptime(match.group(1), "%b-%d-%Y").date()
         return link
 
     def find_by_date(self, dt):
@@ -131,22 +157,22 @@ class SlateDownloader(CrosshareDownloader):
 
     def find_solver(self, url) -> str:
         res = self.session.get(url)
-        soup = BeautifulSoup(res.text, 'html.parser')
-        embed_tag = soup.find('div', attrs={"data-embed-url": True})
-        
+        soup = BeautifulSoup(res.text, "html.parser")
+        embed_tag = soup.find("div", attrs={"data-embed-url": True})
+
         if not isinstance(embed_tag, Tag):
             raise XWordDLException(
                 f"No embed URL found on puzzle page {url}. Please report this as a bug."
             )
         return str(embed_tag.get("data-embed-url", ""))
 
+
 class SlateMiniDownloader(SlateDownloader):
     command = "slam"
     outlet = "Slate Mini"
-    outlet_prefix = "Slate Mini" 
+    outlet_prefix = "Slate Mini"
     play_url_prefix = "crossword-slate-mini-daily-puzzle"
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.landing_url = "https://slate.com/tag/mini-crossword"
-
