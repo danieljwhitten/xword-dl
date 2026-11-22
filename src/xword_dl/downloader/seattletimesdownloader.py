@@ -28,6 +28,7 @@ class SeattleTimesMiniDownloader(SeattleTimesDownloader):
 
     def parse_xword(self, xw_data):
         puzzle = super().parse_xword(xw_data)
+        puzzle.solution = re.sub(r"-", ".", puzzle.solution) #Slate mini has blanks as - instead of .
         puzzle.fill = re.sub(r"[^.]", "-", puzzle.solution)
         return puzzle
 
