@@ -54,6 +54,7 @@ class CrosshareDownloader(BaseDownloader):
 
     def parse_xword(self, xw_data):
         puzzle = puz.Puzzle()
+        puzzle.set_version(b"2.0")
         puzzle.title = xw_data.get("title", "").strip()
         puzzle.author = xw_data.get("authorName", "").strip()
         puzzle.width, puzzle.height = xw_data.get("size", {}).values()
@@ -74,7 +75,9 @@ class CrosshareDownloader(BaseDownloader):
                 0 if len(cell) <= 1 else next(rebus_board_index)
                 for cell in xw_data.get("grid", [])
             ]
-            rebus_table_index = count(1)
+            rebus_table_index = count(
+                0
+            )  # rebus table is 0-indexed, rebus board is 1-indexed
             rebus_table = "".join(
                 [
                     f"{next(rebus_table_index):2d}:{unidecode(cell)};"
