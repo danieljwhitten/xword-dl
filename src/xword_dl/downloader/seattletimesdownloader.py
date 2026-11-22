@@ -1,3 +1,4 @@
+import re
 from .amuselabsdownloader import AmuseLabsDownloader
 
 
@@ -24,6 +25,14 @@ class SeattleTimesMiniDownloader(SeattleTimesDownloader):
     outlet = "Seattle Times Mini"
     outlet_prefix = "Seattle Times Mini"
     url_set = "seattletimes-crossword-mini"
+
+    def parse_xword(self, xw_data):
+        puzzle = super().parse_xword(xw_data)
+        puzzle.solution = re.sub(
+            r"-", ".", puzzle.solution
+        )  # Slate mini has blanks as - instead of .
+        puzzle.fill = re.sub(r"[^.]", "-", puzzle.solution)
+        return puzzle
 
 
 class SeattleTimesMidiDownloader(SeattleTimesDownloader):
