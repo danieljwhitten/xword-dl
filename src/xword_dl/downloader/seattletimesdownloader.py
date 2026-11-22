@@ -1,3 +1,4 @@
+import re
 from .amuselabsdownloader import AmuseLabsDownloader
 
 
@@ -25,6 +26,10 @@ class SeattleTimesMiniDownloader(SeattleTimesDownloader):
     outlet_prefix = "Seattle Times Mini"
     url_set = "seattletimes-crossword-mini"
 
+    def parse_xword(self, xw_data):
+        puzzle = super().parse_xword(xw_data)
+        puzzle.fill = re.sub(r"[^.]", "-", puzzle.solution)
+        return puzzle
 
 class SeattleTimesMidiDownloader(SeattleTimesDownloader):
     command = "stmd"
