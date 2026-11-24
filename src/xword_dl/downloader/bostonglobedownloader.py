@@ -1,6 +1,5 @@
 import requests
 
-
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
@@ -115,16 +114,20 @@ class BostonGlobeSundayDownloader(BostonGlobeDownloader):
 
     def find_latest(self):
         # BG only publishes unique puzzle on Sundays, other days syndicate Universal
-        today = datetime.now(ZoneInfo("America/New_York")).date()
+        today = datetime.now(ZoneInfo("America/New_York"))
         offset = (
             today.weekday() - 6
         ) % 7  # 0 if today is Sunday, else days since last Sunday
         latest_sunday = today - timedelta(days=offset)
-        self.date = latest_sunday
         return self.find_by_date(latest_sunday)
 
     def find_by_date(self, dt):
-        self.date_string = dt.isoformat()
-
+        if dt.weekday() < 6:
+            raise XWordDLException(
+                f"{dt:%B %-d, %Y} is a {dt:%A}, Boston Globe only publishes unique puzzles on Sunday.\n"
+                f"To get the Universal syndicated puzzle published in the Boston Globe on this day, try xword-dl uni -d {dt:%Y/%m/%d}"
+            )
+        self.date_string = dt.date().isoformat()
+        self.date = dt.date()
         # In practice, setting the date_string above does everything we need here.
         return ""
