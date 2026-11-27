@@ -9,6 +9,7 @@ Supported outlets:
 |*Atlantic*|`atl`|✔️|✔️||
 |*Crossword Club*|`club`|✔️|✔️|✔️|
 |*Billboard*|`bill`|✔️|||
+|*Boston Globe Sunday*|`bgs`|✔️|✔️||
 |*The Daily Beast*|`db`|✔️|||
 |*Daily Pop*|`pop`|✔️|✔️||
 |*Der Standard*|`std`|✔️||✔️|
