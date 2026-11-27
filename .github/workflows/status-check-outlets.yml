@@ -44,6 +44,16 @@ jobs:
       - name: Test Chicago Sun-Times by date
         if: '!cancelled()'
         run: xword-dl cst -d 10/3/26
+        run: xword-dl atl -d 12/15/236
+#      - name: Test Billboard latest
+#        if: '!cancelled()'
+#        run: xword-dl bill
+      - name: Test Boston Globe Sunday latest
+        if: '!cancelled()'
+        run: xword-dl bgs
+      - name: Test Boston Globe Sunday by date
+        if: '!cancelled()'
+        run: xword-dl bgs -d 11/15/26
       - name: Test Crossword Club latest
         if: '!cancelled()'
         run: xword-dl club

@@ -11,6 +11,7 @@ Supported outlets:
 |*Billboard*|`bill`|✔️|||
 |*Chicago Sun-Times Chicago Mini*|`cstm`|✔️|✔️||
 |*Chicago Sun-Times Full*|`cst`|✔️|✔️||
+|*Boston Globe Sunday*|`bgs`|✔️|✔️||
 |*The Daily Beast*|`db`|✔️|||
 |*Daily Pop*|`pop`|✔️|✔️||
 |*Der Standard*|`std`|✔️||✔️|
